@@ -32,6 +32,7 @@ public class NPCMove : TacticsMove
         else
         {
             Move();
+           // Attack();
         }
 	}
 
@@ -60,5 +61,9 @@ public class NPCMove : TacticsMove
         }
 
         target = nearest;
+        if (distance == 0.0)
+        {
+
+        }
     }
 }
