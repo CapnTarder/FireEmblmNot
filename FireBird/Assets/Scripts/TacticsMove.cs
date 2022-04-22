@@ -15,9 +15,11 @@ public class TacticsMove : MonoBehaviour
     public bool moving = false;
     public int move = 5;
     public float jumpHeight = 2;
-    public float moveSpeed = 2;
+    public float moveSpeed = 3;
     public float jumpVelocity = 4.5f;
 
+    public GameObject self;
+    
     Vector3 velocity = new Vector3();
     Vector3 heading = new Vector3();
 
@@ -28,6 +30,11 @@ public class TacticsMove : MonoBehaviour
     bool movingEdge = false;
     Vector3 jumpTarget;
 
+    public GameManager GM;
+    public int NPC;
+    //public AttackScript attackScript;
+
+
     public Tile actualTargetTile;
 
     protected void Init()
@@ -37,6 +44,11 @@ public class TacticsMove : MonoBehaviour
         halfHeight = GetComponent<Collider>().bounds.extents.y;
 
         TurnManager.AddUnit(this);
+        
+    }
+    void Start()
+    {
+        //GM= GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager>();
     }
 
     public void GetCurrentTile()
@@ -157,8 +169,50 @@ public class TacticsMove : MonoBehaviour
             RemoveSelectableTiles();
             moving = false;
 
+            //Debug.Log(self.transform.GetChild(1).GetComponent<AttackScript>().range);
+
+            if (self.transform.GetChild(1).GetChild(0).GetComponent<AttackScript>().range)
+            {
+                self.transform.GetChild(1).GetChild(0).GetComponent<AttackScript>().Attack(); 
+                Debug.Log("Hello! 1");
+
+            }
+            else if (self.transform.GetChild(1).GetChild(1).GetComponent<AttackScript>().range)
+            {
+                self.transform.GetChild(1).GetChild(1).GetComponent<AttackScript>().Attack();
+                Debug.Log("Hello! 2");
+
+            }
+             else if (self.transform.GetChild(1).GetChild(2).GetComponent<AttackScript>().range)
+            {
+                self.transform.GetChild(1).GetChild(2).GetComponent<AttackScript>().Attack();
+                Debug.Log("Hello! 3");
+
+            }
+            else if (self.transform.GetChild(1).GetChild(3).GetComponent<AttackScript>().range)
+            {
+                self.transform.GetChild(1).GetChild(3).GetComponent<AttackScript>().Attack();
+                Debug.Log("Hello! 4");
+
+            }
+
+
+
+            //AttackScript.Check();
+            //if(GM.range == true)
+            // {
+            //  AttackMove();
+            // }
+            //AttackScript.Attack();
+
             TurnManager.EndTurn();
         }
+    }
+
+    public void AttackMove()
+    {
+        
+       // AttackScript.Attack();
     }
 
     protected void RemoveSelectableTiles()

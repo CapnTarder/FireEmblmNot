@@ -5,12 +5,19 @@ using UnityEngine;
 public class NPCMove : TacticsMove 
 {
     GameObject target;
+    GameObject sword;
+    
+
+
+
 
 	// Use this for initialization
 	void Start () 
 	{
         Init();
-	}
+        self = gameObject;
+      //  Dude = "Player";
+    }
 	
 	// Update is called once per frame
 	void Update () 
@@ -24,6 +31,7 @@ public class NPCMove : TacticsMove
 
         if (!moving)
         {
+            //Dude = "Player";
             FindNearestTarget();
             CalculatePath();
             FindSelectableTiles();
@@ -32,6 +40,7 @@ public class NPCMove : TacticsMove
         else
         {
             Move();
+          
         }
 	}
 
@@ -60,5 +69,9 @@ public class NPCMove : TacticsMove
         }
 
         target = nearest;
+        if (distance == 0.0)
+        {
+
+        }
     }
 }
