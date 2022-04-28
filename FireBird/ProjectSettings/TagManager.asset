@@ -8,6 +8,7 @@ TagManager:
   - NPC
   - PlayerWep
   - NPCWep
+  - dedScreen
   layers:
   - Default
   - TransparentFX

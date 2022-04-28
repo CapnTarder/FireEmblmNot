@@ -5,19 +5,18 @@ using UnityEngine.Advertisements;
 
 public class AdManager : MonoBehaviour
 {
-    /*   // android: your_id
+       // android: your_id
        // apple: your_id
        //string gameId = "your_id";
        bool testMode = true;
 
-   #if UNITY_IOS
-           private string gameId = "4687120";
-   #elif UNITY_ANDROID
-           private string gameId = "4687121";
-   #endif
+
+       private string gameId = "4687121";
+   
 
        void Start()
        {
+
            // Initialize the Ads service:
            //Advertisement.Initialize(gameId);
            Advertisement.Initialize(gameId, testMode);
@@ -36,5 +35,5 @@ public class AdManager : MonoBehaviour
            }
            //Time.timeScale = 0f;
        }
-   */
+   
 }

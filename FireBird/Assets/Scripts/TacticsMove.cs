@@ -37,6 +37,10 @@ public class TacticsMove : MonoBehaviour
 
     public Tile actualTargetTile;
 
+    public GameObject ded;
+
+
+
     protected void Init()
     {
         tiles = GameObject.FindGameObjectsWithTag("Tile");
@@ -44,11 +48,39 @@ public class TacticsMove : MonoBehaviour
         halfHeight = GetComponent<Collider>().bounds.extents.y;
 
         TurnManager.AddUnit(this);
-        
+
+
+        //Debug.Log("init");
     }
+
+    private void FixedUpdate()
+    {
+
+        if(self.transform.GetChild(0).GetChild(0).GetComponent<HPBar>().isDed)
+        {
+            GameObject ded = TurnManager.ded;
+            TurnManager.RemoveUnit(this, ded);
+            TurnManager.
+            Destroy(self);
+
+            //if()
+            
+
+            
+
+
+        }
+    }
+
+
+
+
     void Start()
     {
+        //ded = GameObject.FindGameObjectWithTag("dedScreen");
+        //ded.SetActive(false);
         //GM= GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager>();
+        turn = true;
     }
 
     public void GetCurrentTile()
@@ -174,25 +206,25 @@ public class TacticsMove : MonoBehaviour
             if (self.transform.GetChild(1).GetChild(0).GetComponent<AttackScript>().range)
             {
                 self.transform.GetChild(1).GetChild(0).GetComponent<AttackScript>().Attack(); 
-                Debug.Log("Hello! 1");
+                //Debug.Log("Hello! 1");
 
             }
             else if (self.transform.GetChild(1).GetChild(1).GetComponent<AttackScript>().range)
             {
                 self.transform.GetChild(1).GetChild(1).GetComponent<AttackScript>().Attack();
-                Debug.Log("Hello! 2");
+                //Debug.Log("Hello! 2");
 
             }
              else if (self.transform.GetChild(1).GetChild(2).GetComponent<AttackScript>().range)
             {
                 self.transform.GetChild(1).GetChild(2).GetComponent<AttackScript>().Attack();
-                Debug.Log("Hello! 3");
+                //Debug.Log("Hello! 3");
 
             }
             else if (self.transform.GetChild(1).GetChild(3).GetComponent<AttackScript>().range)
             {
                 self.transform.GetChild(1).GetChild(3).GetComponent<AttackScript>().Attack();
-                Debug.Log("Hello! 4");
+                //Debug.Log("Hello! 4");
 
             }
 
@@ -442,10 +474,12 @@ public class TacticsMove : MonoBehaviour
     public void BeginTurn()
     {
         turn = true;
+        Debug.Log("Does this even work?");
     }
 
     public void EndTurn()
     {
         turn = false;
+        Debug.Log("did this work?");
     }
 }

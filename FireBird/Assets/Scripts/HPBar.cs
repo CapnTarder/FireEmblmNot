@@ -10,8 +10,11 @@ public class HPBar : MonoBehaviour
     public int maxHealth = 20;
     public int currentHealth;
     public Slider slider;
-   // public string ColTag;
-    
+    public bool isDed;
+    // public string ColTag;
+    //public TurnManager Turn;
+
+
     public void SetMaxHealth(int health)
     {
         slider.maxValue = maxHealth;
@@ -20,6 +23,7 @@ public class HPBar : MonoBehaviour
 
     void Start()
     {
+        //Turn = GameObject.FindGameObjectWithTag("Map").GetComponent<TurnManager>();
         currentHealth = maxHealth;
         // maxHealth = 20;
        // ColTag = gameObject.tag + "Wep";
@@ -37,7 +41,10 @@ public class HPBar : MonoBehaviour
     {
         if(slider.value == 0)
         {
-            Destroy(gameObject.transform.parent.parent.gameObject);
+            isDed = true;
+            //Turn.RemoveUnit(gameObject.transform.parent.parent.gameObject);
+           // Destroy(gameObject.transform.parent.parent.gameObject);
+
         }
     }
 

@@ -4,18 +4,29 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
-
-    public void LoadLevel (string levelName)
+    public AdManager Ad;
+    TurnManager tm;
+    public void LoadLevel()
     {
-        SceneManager.LoadScene(levelName);
+        SceneManager.LoadScene("Test");
 
+    }
+    public void LoadMenu()
+    {
+
+
+        Ad.ShowInterstitialAd();
+
+
+
+        SceneManager.LoadScene("MainMenu");
     }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Ad = GameObject.FindGameObjectWithTag("AdTime").GetComponent<AdManager>(); 
     }
 
     // Update is called once per frame

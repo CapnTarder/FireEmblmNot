@@ -17,11 +17,12 @@ public class AttackScript : MonoBehaviour
     // public TurnManager tm;
     public GameManager GM;
     public GameObject Enemy;
-
+    
 
     // Start is called before the first frame update
     void Start()
     {
+        
         //  GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager>();
         range = false;
         currentHealth = maxHealth;
@@ -31,7 +32,7 @@ public class AttackScript : MonoBehaviour
 
     public int TakeDamage(int damage)
     {
-        Debug.Log(Enemy.name);
+        //Debug.Log(Enemy.name);
         HPbad = Enemy.transform.GetChild(0).GetChild(0).GetComponent<HPBar>();
        // Debug.Log(HPbad.gameObject.transform.parent.parent.name);
         HPbad.currentHealth -= damage;
@@ -42,7 +43,7 @@ public class AttackScript : MonoBehaviour
     public void Attack()
     {
 
-        Debug.Log("this is the attack script");
+        //Debug.Log("this is the attack script");
         //  TurnManager.EndTurn();
         /*  if (range == true)
           {
@@ -56,7 +57,7 @@ public class AttackScript : MonoBehaviour
               TurnManager.EndTurn();
 
           }*/
-        TakeDamage(5);
+        TakeDamage(damage);
     }
 
     public void Check()
@@ -71,9 +72,9 @@ public class AttackScript : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("triggered");
+        Debug.Log("triggered");
 
-        // Debug.Log("triggered" + other.gameObject.name);
+        //Debug.Log("triggered" + other.gameObject.name);
         // Enemy = other.gameObject;
         //Debug.Log(HPBar.gameObject.transform.parent.parent.tag);
        if(other.tag != HPBar.gameObject.transform.parent.parent.tag)
@@ -86,9 +87,22 @@ public class AttackScript : MonoBehaviour
                 //Debug.Log("tag " + other.tag);
                 //TakeDamage(damage);
             }
+            else
+            {
+                range = false;
+                Enemy = null;
+            }
         }
 
 
         // Debug.Log("triggered");
     }
+
+   // public void OncolliderExit(Collider other)
+    //{
+
+       // Debug.Log("left trigger");
+       // Enemy = null;
+       // range = false;
+    //}
 }
