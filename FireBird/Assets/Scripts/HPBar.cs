@@ -7,7 +7,7 @@ public class HPBar : MonoBehaviour
 {
     // Start is called before the first frame update
     
-    public int maxHealth = 20;
+    public int maxHealth;
     public int currentHealth;
     public Slider slider;
     public bool isDed;

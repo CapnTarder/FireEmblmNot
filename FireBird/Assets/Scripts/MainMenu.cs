@@ -6,9 +6,9 @@ public class MainMenu : MonoBehaviour
 {
     public AdManager Ad;
     TurnManager tm;
-    public void LoadLevel()
+    public void LoadLevel( string dab)
     {
-        SceneManager.LoadScene("Test");
+        SceneManager.LoadScene(dab);
 
     }
     public void LoadMenu()

@@ -30,7 +30,7 @@ public class TacticsMove : MonoBehaviour
     bool movingEdge = false;
     Vector3 jumpTarget;
 
-    public GameManager GM;
+    //public GameManager GM;
     public int NPC;
     //public AttackScript attackScript;
 

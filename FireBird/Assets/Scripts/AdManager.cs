@@ -8,7 +8,7 @@ public class AdManager : MonoBehaviour
        // android: your_id
        // apple: your_id
        //string gameId = "your_id";
-       bool testMode = true;
+      // bool testMode = true;
 
 
        private string gameId = "4687121";
@@ -18,8 +18,8 @@ public class AdManager : MonoBehaviour
        {
 
            // Initialize the Ads service:
-           //Advertisement.Initialize(gameId);
-           Advertisement.Initialize(gameId, testMode);
+           Advertisement.Initialize(gameId);
+           //Advertisement.Initialize(gameId, testMode);
        }
 
        public void ShowInterstitialAd()

@@ -9,6 +9,7 @@ TagManager:
   - PlayerWep
   - NPCWep
   - dedScreen
+  - AdTime
   layers:
   - Default
   - TransparentFX

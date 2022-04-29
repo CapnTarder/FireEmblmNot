@@ -15,7 +15,7 @@ public class AttackScript : MonoBehaviour
 
     public bool range;
     // public TurnManager tm;
-    public GameManager GM;
+    //public GameManager GM;
     public GameObject Enemy;
     
 
